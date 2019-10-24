@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 char UserName, P_atual, TP_atual;
 int Op, FP_atual, VP_atual, RP_atual;
 
@@ -12,13 +11,13 @@ int main() {
 	
 	printf("\nDigite seu UserName: ");
 	scanf("%s", &UserName);
-	system("cls");
+	system("clear");
 	
 	EscolhaInicial();
 	
 	return 0;
 }
-//Fim da funÁ„o principal
+//Fim da fun√ß√£o principal
 
 void EscolhaInicial() {
 	printf("===================\n");
@@ -50,7 +49,7 @@ void EscolhaInicial() {
 	printf("Escolha: ");
 	scanf("%d", &Op);
 	
-	switch(Op) {			//AtribuiÁ„o de valores iniciais
+	switch(Op) {			//Atribui√ß√£o de valores iniciais
 		case 1:
 			P_atual = "Bulbasaur";
 			FP_atual = 3;
@@ -88,9 +87,9 @@ void EscolhaInicial() {
 	printf("%s\n", UserName);
 	printf("%s\n", P_atual);
 	printf("%d\n", FP_atual);
-	printf("%d\n", VP_atual);		//Impress„o dos valores iniciais
+	printf("%d\n", VP_atual);		//Impress√£o dos valores iniciais
 	printf("%d\n", RP_atual);
 	printf("%s\n", TP_atual);
 	
 }
-//Fim da funÁ„o EscolhaInicial
+//Fim da fun√ß√£o EscolhaInicial
