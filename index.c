@@ -1,25 +1,71 @@
 #include <stdio.h>
-char UserName, P_atual, TP_atual;
-int Op, FP_atual, VP_atual, RP_atual;
+char UserName;
+int Op;
+FILE *PoDB; //Banco de dados do Pokemon
 
 void EscolhaInicial();
+int MenuPrincipal();
 
 int main() {
+	system("clear"); //Limpa tela
+	MenuPrincipal();
+
+	return 0;
+} //Fim da função principal
+
+int MenuPrincipal() {
+	printf("\n======\n");
+	printf(" Menu\n");
+	printf("======\n");
+
+	printf("[1] - Começar\n");
+	printf("[2] - Continuar\n");
+	printf("[3] - Sair\n");
+
+	printf("\n==========\n");
+	printf("Escolha: ");
+	scanf("%d", &Op);
+
+	switch(Op) {
+		case 1:
+			printf("\nPrimeira função iniciada...\n");
+
+			break;
+
+		case 2:
+			printf("\nSegunda função é iniciada...\n");
+
+			break;
+
+		case 3:
+			printf("\nPrograma é encerrado...\n");
+
+			break;
+
+		default:
+			printf("\nTente novamente...\n");
+			sleep(1);
+			system("clear");
+			MenuPrincipal();
+
+			break;
+
+	}
+
+	return 0;
+} //Fim da função Menu Principal
+
+void EscolhaInicial() {
+	system("clear"); //Limpa tela
 	printf("==============\n");
 	printf(" POKEMON GAME\n");
 	printf("==============\n");
-	
+
 	printf("\nDigite seu UserName: ");
 	scanf("%s", &UserName);
 	system("clear");
 	
-	EscolhaInicial();
-	
-	return 0;
-}
-//Fim da função principal
-
-void EscolhaInicial() {
+	//Introdução aos Pokemons Iniciais
 	printf("===================\n");
 	printf(" Pokemons Iniciais\n");
 	printf("===================\n\n");
@@ -44,52 +90,48 @@ void EscolhaInicial() {
 	printf("Velocidade: 3\n");
 	printf("Resistencia: 4\n");
 	printf("Tipo: Aquatico\n");
-	
+
 	printf("\n===========\n");
 	printf("Escolha: ");
 	scanf("%d", &Op);
-	
-	switch(Op) {			//Atribuição de valores iniciais
+
+	system("clear"); //Limpa tela
+	//Abertura do banco de dados individual dos pokemons
+	PoDB = fopen("Documentos//Projetos em C//PokemonGame//dados-pomemon-ini.txt", "a");
+
+	if(PoDB == NULL) {
+		printf("\nErro no Banco de Dados...\n\n");
+		return 1;
+		//Verificação da abertura do DB
+	}
+
+	switch(Op) { //Atribuição de valores iniciais
 		case 1:
-			P_atual = "Bulbasaur";
-			FP_atual = 3;
-			VP_atual = 2;
-			RP_atual = 4;
-			TP_atual = "Grama//Veneno";
-			
+			fprintf(PoDB, "Bulbasaur\n3\n2\n4\nGrama//Veneno\n"); //Salvando dados
+			printf("\nVocê escolheu Bulbasaur!\n\n");
+
 			break;
 			
 		case 2:
-			P_atual = "Charmander";
-			FP_atual = 4;
-			VP_atual = 4;
-			RP_atual = 3;
-			TP_atual = "Fogo";
-			
+			fprintf(PoDB, "Charmander\n4\n4\n3\nFogo\n"); //Salvando dados
+			printf("\nVocê escolheu Charmander!\n\n");
+
 			break;
 			
 		case 3:
-			P_atual = "Squirtle";
-			FP_atual = 4;
-			VP_atual = 3;
-			RP_atual = 4;
-			TP_atual = "Aquatico";
+			fprintf(PoDB, "Squirtle\n4\n3\n4\nAquatico\n"); //Salvando dados
+			printf("\nVocê escolheu Squirtle!\n\n");
 			
 			break;
 		
 		default:
-			printf("Ocorreu algum erro...\n");
+			printf("Ocorreu algum erro...\n\n");
 			return 1;
 			
 			break;	
+
 	}
+
 	
-	printf("%s\n", UserName);
-	printf("%s\n", P_atual);
-	printf("%d\n", FP_atual);
-	printf("%d\n", VP_atual);		//Impressão dos valores iniciais
-	printf("%d\n", RP_atual);
-	printf("%s\n", TP_atual);
-	
-}
-//Fim da função EscolhaInicial
+
+} //Fim da função EscolhaInicial
