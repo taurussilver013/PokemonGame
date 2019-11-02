@@ -13,7 +13,7 @@ int main() {
 	return 0;
 } //Fim da função principal
 
-int MenuPrincipal() {
+int MenuPrincipal() { //Função Menu Principal
 	printf("\n======\n");
 	printf(" Menu\n");
 	printf("======\n");
@@ -26,9 +26,9 @@ int MenuPrincipal() {
 	printf("Escolha: ");
 	scanf("%d", &Op);
 
-	switch(Op) {
+	switch(Op) { //Caminho da escolha Menu
 		case 1:
-			printf("\nPrimeira função iniciada...\n");
+			EscolhaInicial();
 
 			break;
 
@@ -107,31 +107,33 @@ void EscolhaInicial() {
 
 	switch(Op) { //Atribuição de valores iniciais
 		case 1:
-			fprintf(PoDB, "Bulbasaur\n3\n2\n4\nGrama//Veneno\n"); //Salvando dados
-			printf("\nVocê escolheu Bulbasaur!\n\n");
+			fprintf(PoDB, "\nBulbasaur\n3\n2\n4\nGrama//Veneno\n"); //Salvando dados
+			printf("\nVocê escolheu Bulbasaur!\n");
 
 			break;
 			
 		case 2:
 			fprintf(PoDB, "Charmander\n4\n4\n3\nFogo\n"); //Salvando dados
-			printf("\nVocê escolheu Charmander!\n\n");
+			printf("\nVocê escolheu Charmander!\n");
 
 			break;
 			
 		case 3:
 			fprintf(PoDB, "Squirtle\n4\n3\n4\nAquatico\n"); //Salvando dados
-			printf("\nVocê escolheu Squirtle!\n\n");
+			printf("\nVocê escolheu Squirtle!\n");
 			
 			break;
 		
 		default:
-			printf("Ocorreu algum erro...\n\n");
+			printf("Ocorreu algum erro...\n");
 			return 1;
 			
 			break;	
 
 	}
 
-	
+		sleep(2);
+		system("clear");
+		MenuPrincipal();
 
 } //Fim da função EscolhaInicial
